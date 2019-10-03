@@ -1,0 +1,14 @@
+.wrapper-stock{
+  width: 100vw;
+  position: relative;
+  text-align: center;
+}
+
+.wrapper-stock-item{
+  width: 100vw;
+  padding:10px 0px;
+
+}
+.wrapper-stock-item:nth-child(2n){
+  background-color: #f2f2f2;
+}

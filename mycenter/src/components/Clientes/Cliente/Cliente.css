@@ -1,0 +1,25 @@
+.wrapper-single-client{
+  width: 100vw;
+  text-align: center;
+  height: 100vh;
+}
+
+
+.devices-list-clients a{
+  text-decoration: none;
+  background: white !important;
+  padding:5px;
+  margin:0px 0px !important;
+  color:blue !important;
+  display: block !important;
+
+}
+
+.wrapper-single-client a{
+  text-decoration: none;
+  background-color: #333333;
+  padding:5px;
+  color:white;
+  margin:10px 0px;
+  display: inline-block;
+}

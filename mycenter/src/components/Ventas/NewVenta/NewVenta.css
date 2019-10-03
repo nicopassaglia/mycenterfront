@@ -1,0 +1,47 @@
+.new-venta-wrapper{
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.new-venta-form-wrapper{
+  width: 50vw;
+  text-align: center;
+}
+
+.new-venta-form-wrapper>select{
+  padding:0;
+  margin:0;
+  font-size: 1em;
+  width: 60%;
+}
+#new-venta-form select{
+  padding:0;
+  margin:0;
+  font-size: 1em;
+  width: 60%;
+
+}
+
+.wrapper-listado-productos-agregados{
+  min-height: 20vh;
+}
+.select-new-producto-order{
+  padding:30px 0px;
+
+}
+
+.new-venta-services-wrapper{
+  border-width: 0px 0px 5px 0px;
+  border-style: solid;
+  padding:0px 0px 20px 0px;
+}
+
+.resumen-venta-wrapper{
+  text-align: center;
+}
+.div-mostrar-total{
+  border-top: 1px solid black;
+}

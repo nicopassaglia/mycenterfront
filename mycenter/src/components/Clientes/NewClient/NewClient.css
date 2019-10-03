@@ -1,0 +1,26 @@
+.wrapper-new-client{
+  width: 100vw;
+  position: relative;
+  text-align: center;
+}
+.wrapper-form-new-client{
+  position: absolute;
+  width: 60%;
+  left:20%;
+}
+
+#form-new-client input,select{
+  width: 90%;
+  padding:10px 0px;
+  font-size: 1.3em;
+  margin:10px;
+  display: inline-block;
+}
+#form-new-client button{
+  display: inline-block;
+  width: 25%;
+  background-color: #333333;
+  color:white;
+  padding:20px 0px;
+  font-size: 1.1em;
+}

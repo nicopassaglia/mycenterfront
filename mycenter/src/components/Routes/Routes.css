@@ -1,0 +1,12 @@
+.wrapper-edit-routes{
+  width: 100vw;
+  position: relative;
+}
+.wrapper-edit-routes-container{
+  width: 60vw;
+  position: absolute;
+  left:20vw;
+  background-color: #f2f2f2;
+  min-height: 90vh;
+  text-align: center;
+}

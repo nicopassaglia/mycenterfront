@@ -1,0 +1,31 @@
+.wrapper-ventas{
+  position: relative;
+  width: 100vw;
+
+}
+.wrapper-ventas-listado{
+  position: absolute;
+  width: 60vw;
+  left:20vw;
+  text-align: center;
+}
+.wrapper-ventas-listado-item{
+  padding:10px;
+
+}
+.wrapper-ventas-listado-item p{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+
+}
+.wrapper-ventas-listado-item span{
+  width: 20vw;
+}
+.wrapper-ventas-listado-item:nth-child(2n){
+  background-color: #f2f2f2;
+
+
+}

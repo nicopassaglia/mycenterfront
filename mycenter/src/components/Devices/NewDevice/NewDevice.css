@@ -1,0 +1,44 @@
+.newdevie-wrapper{
+  width: 100vw;
+  position: relative;
+}
+.newdevice-form-wrapper{
+  width:50vw;
+  position: absolute;
+  left:25vw;
+  text-align: center;
+  background-color: #f2f2f2;
+  height: 50vh;
+
+}
+#newdevice-form{
+
+}
+#newdevice-form select{
+  width: 40%;
+  padding: 0;
+  font-size: 1em;
+  margin:10px 5px;
+}
+#newdevice-form input{
+  width: 40%;
+  border-radius: 4px;
+  border: none;
+  font-size: 1em;
+  margin:10px 5px;
+
+}
+#newdevice-form textarea{
+  width: 90%;
+  border-radius: 4px;
+  border:none;
+}
+#newdevice-form button{
+  display: inline-block;
+  width: 25%;
+  background-color: #333333;
+  color:white;
+  padding:10px 0px;
+  font-size: 1.1em;
+  margin-top:20px;
+}

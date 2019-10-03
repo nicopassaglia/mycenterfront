@@ -1,0 +1,35 @@
+
+.storeChoice-wrapper{
+  width: 100vw;
+  height: 92vh;
+
+}
+
+.storeChoice-inner{
+  height: 100%;
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+}
+
+.storeChoice-option{
+
+  width: 20vw;
+  height: 20vw;
+  border-radius:30px;
+  padding:20px;
+  text-align: center;
+}
+.storeChoice-option:hover{
+  background-color: #C0C0C0;
+  cursor: pointer;
+}
+.storeChoice-option img{
+  width: 100%;
+}
+.storeChoice-option p{
+  font-size:1.3em;
+  font-weight: bold;
+  color:#000000;
+
+}
