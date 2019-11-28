@@ -54,7 +54,7 @@ class Login extends Component{
      formdata.append("password",this.state.password);
     await axios({
       method:'POST',
-      url:this.state.url+'/rest-auth/login/',
+      url:this.state.url+'/auth/login/',
       data:formdata,
       config:{
         headers:{
@@ -71,7 +71,7 @@ class Login extends Component{
       if(id == null){
         alert("Datos incorrectos");
       }else{
-        axios.get(this.state.url+'/rest-auth/user/')
+        axios.get(this.state.url+'/auth/user/')
         .then(res=>{
           sessionStorage.setItem('id',res.data.pk);
           sessionStorage.setItem('oficina',res.data.office);

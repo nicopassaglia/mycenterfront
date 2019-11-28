@@ -1,0 +1,25 @@
+.wrapper-newproduct{
+  width: 100vw;
+  position: relative;
+  text-align: center;
+}
+
+.wrapper-newproduct form input{
+  width: 50vw;
+  padding:5px;
+  font-size: 1em;
+  margin:10px 0px;
+}
+.wrapper-newproduct form input[type='checkbox']{
+  width: 40px;
+}
+.wrapper-newproduct form select{
+  width: 50vw;
+  padding:0px;
+  margin:10px 0px;
+  font-size: 1em;
+}
+.wrapper-newproduct form button{
+  display: block;
+  margin:auto;
+}

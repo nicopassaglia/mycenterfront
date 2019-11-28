@@ -1,0 +1,21 @@
+.wrapper-listado-servicios{
+  width: 100vw;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.listado-servicios-item{
+  width: 50%;
+
+}
+
+.wrapper-listado-servicios button{
+  position: fixed;
+  right: 10px;
+  top:10vh;
+  padding:10px 20px;
+  background-color: #333333;
+  color:white;
+}

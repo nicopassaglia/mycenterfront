@@ -24,3 +24,9 @@ header a{
   color:white;
   font-size:1em;
 }
+header button{
+  background-color: #333333;
+  border:none;
+  font-size: 1em;
+  color:white;
+}

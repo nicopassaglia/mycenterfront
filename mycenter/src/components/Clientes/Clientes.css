@@ -22,3 +22,7 @@
 #displayClientesTable tr:nth-child(2n){
   background-color: #f2f2f2;
 }
+.wrapper-display-clientes>input{
+  margin-left: 50px;
+  font-size: 1.1em;
+}

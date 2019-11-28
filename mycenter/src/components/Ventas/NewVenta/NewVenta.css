@@ -25,6 +25,13 @@
 
 }
 
+#filtro_cliente_nueva_venta{
+  font-size: 1em;
+  width: 60%;
+  margin:15px 0px;
+  
+}
+
 .wrapper-listado-productos-agregados{
   min-height: 20vh;
 }

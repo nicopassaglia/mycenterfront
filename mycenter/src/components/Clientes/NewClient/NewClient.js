@@ -8,7 +8,8 @@ class NewClient extends Component{
   constructor(props){
     super(props);
     this.state = {
-      name:"",
+      first_name:"",
+      last_name:"",
       type_id:"DNI",
       person_id:"",
       email: "",
@@ -33,7 +34,8 @@ class NewClient extends Component{
     e.preventDefault();
 
     axios.post('http://127.0.0.1:8000/clients/',{
-      name:this.state.name,
+      first_name:this.state.first_name,
+      last_name:this.state.last_name,
       type_id:this.state.type_id,
       person_id:this.state.person_id,
       email:this.state.email,
@@ -56,7 +58,8 @@ class NewClient extends Component{
           <div className="wrapper-form-new-client">
             <h1>Nuevo Cliente</h1>
             <form id="form-new-client">
-              <input onChange={this.handleInputChange} type="text" name="name" placeholder="Nombre" value={this.state.nombre} />
+              <input onChange={this.handleInputChange} type="text" name="first_name" placeholder="Nombre" value={this.state.first_name} />
+              <input onChange={this.handleInputChange} type="text" name="last_name" placeholder="Apellido" value={this.state.last_name} />
               <select onChange={this.handleInputChange} value={this.state.type_id} name="type_id">
                 <option value="DNI">DNI</option>
                 <option value="PASS">Pasaporte</option>

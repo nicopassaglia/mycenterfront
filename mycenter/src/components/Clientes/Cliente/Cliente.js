@@ -19,6 +19,7 @@ class Cliente extends Component{
       person_id:"",
       devices_urls:[],
       devices:[],
+      
     };
 
 
@@ -66,7 +67,7 @@ class Cliente extends Component{
           <p><strong>Dispositivos: </strong></p>
           <div className="devices-list-clients">
           {this.state.devices.map((item)=>(
-              <a><Link to={'/devices/'+item.id}>{item.modelinfo.name} de {item.capacity} GB - {item.color}</Link></a>
+              <a><Link to={'/devices/'+item.id}>{item.modelinfo.name} de {item.capacity} GB - {item.color} - IMEI: {item.imei}</Link></a>
           ))}
           </div>
           <a id="button-new-device"><Link to={"/devices/add/"+this.state.id_inbd}>Agregar Dispositivo</Link></a>

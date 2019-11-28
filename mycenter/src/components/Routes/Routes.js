@@ -16,6 +16,7 @@ class Routes extends Component{
       oficina_actual:[],
       oficinas:[],
       nueva_ruta:"-1",
+      donde_se_encuentra:"",
     }
 
     this.isItThere = this.isItThere.bind(this);
@@ -50,17 +51,19 @@ class Routes extends Component{
     .then(async res=>{
       for(let i =0;i<res.data.length;i++){
         servicios_en_orden[i] = [];
-        servicios_en_orden[i]['url_servicio'] = res.data[i].service;
+        servicios_en_orden[i]['url_service_office'] = res.data[i].service_office;
         servicios_en_orden[i]['estado_servicio'] = res.data[i].state;
         servicios_en_orden[i]['servicio'] = [];
-        await axios.get(res.data[i].service)
+        servicios_en_orden[i]['servicio']['oficina'] = [];
+        await axios.get(res.data[i].service_office)
         .then(async res2=>{
-          servicios_en_orden[i]['servicio']['nombre'] = res2.data.name;
-          servicios_en_orden[i]['servicio']['oficina'] = [];
-          await axios.get(res2.data.office)
+
+          servicios_en_orden[i]['servicio']['oficina']['direccion'] = res2.data.office_detail.address;
+          servicios_en_orden[i]['servicio']['oficina']['id'] = res2.data.office_detail.id;
+          await axios.get(res2.data.service)
           .then(res3=>{
-            servicios_en_orden[i]['servicio']['oficina']['direccion'] = res3.data.address;
-            servicios_en_orden[i]['servicio']['oficina']['id'] = res2.data.id;
+            servicios_en_orden[i]['servicio']['nombre'] = res3.data.name;
+
           })
         })
       }
@@ -79,7 +82,7 @@ class Routes extends Component{
         rutas[i]['finished'] = res.data[i].finished;
         rutas[i]['usuario'] = res.data[i].user;
         rutas[i]['ruta_url'] = res.data[i].url;
-        rutas[i]['fecha'] = res.data[i].creation_date;
+        rutas[i]['fecha'] = new Date(res.data[i].creation_date).toLocaleString();
         rutas[i]['llego'] = res.data[i].finished;
 
         if(res.data[i].source_office === res.data[i].destination_office){
@@ -90,7 +93,8 @@ class Routes extends Component{
               let oficina_actual = [];
               oficina_actual['id'] = res2.data.id;
               oficina_actual['direccion'] = res2.data.address;
-              this.setState({oficina_actual:oficina_actual});
+
+              this.setState({donde_se_encuentra:res2.data.address,oficina_actual:res2.data.id});
             }
             rutas[i]['origen']['direccion'] = res2.data.address;
             rutas[i]['destino']['direccion'] = res2.data.address;
@@ -113,7 +117,8 @@ class Routes extends Component{
               let oficina_actual = [];
               oficina_actual['id'] = res2.data.id;
               oficina_actual['direccion'] = res2.data.address;
-              this.setState({oficina_actual:oficina_actual});
+
+              this.setState({donde_se_encuentra:"En viaje",oficina_actual:res2.data.id});
             }
           });
 
@@ -124,7 +129,7 @@ class Routes extends Component{
                 let oficina_actual = [];
                 oficina_actual['id'] = res3.data.id;
                 oficina_actual['direccion'] = res3.data.address;
-                this.setState({oficina_actual:oficina_actual});
+                this.setState({donde_se_encuentra:res3.data.address,oficina_actual:res3.data.id});
             }
           });
 
@@ -157,7 +162,7 @@ class Routes extends Component{
   }
 
   isItThere(id){
-      if(id === this.state.oficina_actual.id){
+      if(id === this.state.oficina_actual){
         return true;
       }else{
         return false;
@@ -174,9 +179,9 @@ class Routes extends Component{
     }
     if(insert){
       axios.post(this.state.url+'/route/',{
-        source_office:this.state.url+'/offices/'+this.state.oficina_actual.id+'/',
+        source_office:this.state.url+'/offices/'+this.state.oficina_actual+'/',
         destination_office:this.state.url+'/offices/'+this.state.nueva_ruta+'/',
-        order:this.state.url+'/orders/'+this.state.id_orden+'/',
+        order:this.state.url+'/device_orders/'+this.state.id_orden+'/',
         notes:"Ruta agregada",
         user:this.state.url+'/users/'+sessionStorage.getItem('id')+'/',
       })
@@ -206,18 +211,18 @@ class Routes extends Component{
           <div className="wrapper-edit-routes-container">
             <h2>Rutas</h2>
 
-            {this.state.rutas.map((item)=>(
+            {this.state.rutas.map((item,index)=>(
               <div>
               {item.destino.direccion === item.origen.direccion ?
-                <p>Dispositivo en {item.origen.direccion}</p>
+                <p>{index + 1} - Dispositivo en <strong>{item.origen.direccion}</strong> - Fecha: {item.fecha}</p>
                 :
-                <p><strong>Salio de:</strong> {item.origen.direccion} <strong>Hacia:</strong> {item.destino.direccion} <strong>Llego?</strong> {item.llego ? <span>Si</span> : <span>No <button onClick={()=>this.markAsArrived(item.ruta_url)}>Marcar que llego</button></span>} </p>} </div>
+                <p>{index + 1} - <strong>Salio de:</strong> {item.origen.direccion} el {item.fecha} <strong>Hacia:</strong> {item.destino.direccion} <strong>Llego?</strong> {item.llego ? <span>Si</span> : <span>No <button onClick={()=>this.markAsArrived(item.ruta_url)}>Marcar que llego</button></span>} </p>}  </div>
             ))}
-            <p>Se encuentra actualmente en {this.state.oficina_actual.direccion}</p>
+            <p>Se encuentra actualmente en <strong>{this.state.donde_se_encuentra}</strong></p>
 
             <h2>Lugares de servicio</h2>
             {this.state.servicios_en_orden.map((item)=>(
-              <p>Este dispositivo deberia hacerse {item.servicio.nombre} en {item.servicio.oficina.direccion}</p>
+              <p>Este dispositivo deberia hacerse <strong>{item.servicio.nombre}</strong> en {item.servicio.oficina.direccion}</p>
             ))}
 
             <select name="nueva_ruta" value={this.state.nueva_ruta} onChange={this.handleInputChange}>

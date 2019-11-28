@@ -16,6 +16,7 @@ class Device extends Component{
       color:"",
       modelo:"",
       notas:"",
+      capacity:"",
       ordenes_urls:[],
       arreglo_ordenes:[],
       cliente_url:"",
@@ -34,7 +35,7 @@ class Device extends Component{
   fetchData(){
     axios.get(this.state.url+'/devices/'+this.state.device_id)
     .then(res=>{
-      this.setState({imei:res.data.imei,clave:res.data.password,modelo:res.data.modelinfo.name,color:res.data.color,notas:res.data.notes,cliente_url:res.data.client,ordenes_urls:res.data.orders},()=>this.getExtraData());
+      this.setState({imei:res.data.imei,clave:res.data.password,capacity:res.data.capacity,modelo:res.data.modelinfo.name,color:res.data.color,notas:res.data.notes,cliente_url:res.data.current_owner,ordenes_urls:res.data.device_order},()=>this.getExtraData());
       //console.log(res);
     // console.log(res.data);
     });
@@ -46,6 +47,7 @@ class Device extends Component{
   }
 
   getClientData(){
+
     axios.get(this.state.cliente_url)
     .then(res=>{
       this.setState({nombre_cliente:res.data.name,dni_cliente:res.data.person_id});
@@ -53,23 +55,28 @@ class Device extends Component{
   }
 
    async getOrders(){
+     console.log(this.state.ordenes_urls);
     let arreglo_ordenes = [];
     for(let i = 0;i<this.state.ordenes_urls.length;i++){
-    await  axios.get(this.state.ordenes_urls[i])
-      .then(res=>{
-        console.log(res);
+      arreglo_ordenes[this.state.ordenes_urls.length - (i + 1)] = [];
+      arreglo_ordenes[this.state.ordenes_urls.length - (i + 1)]['sale'] = this.state.ordenes_urls[i].sale;
+      arreglo_ordenes[this.state.ordenes_urls.length - (i + 1)]['estado'] = this.state.ordenes_urls[i].state;
+    // await  axios.get(this.state.ordenes_urls[i].url)
+    //   .then(res=>{
+    //     console.log(res);
+    //
+    //
+    //     arreglo_ordenes[this.state.ordenes_urls.length - (i + 1)] = [];
+    //     arreglo_ordenes[this.state.ordenes_urls.length - (i + 1)]['sale'] = res.data.sale;
+    //     arreglo_ordenes[this.state.ordenes_urls.length - (i + 1)]['estado'] = res.data.state;
+    //     // arreglo_ordenes[i]['notas'] = res.data.notes;
+    //     // arreglo_ordenes[i]['wet'] = res.data.wet;
+    //     // arreglo_ordenes[i]['fecha'] = res.data.time_created;
+    //
+    //   })
 
-
-        arreglo_ordenes[i] = [];
-        arreglo_ordenes[i]['id'] = res.data.id;
-        arreglo_ordenes[i]['estado'] = res.data.state;
-        arreglo_ordenes[i]['notas'] = res.data.notes;
-        arreglo_ordenes[i]['wet'] = res.data.wet;
-        arreglo_ordenes[i]['fecha'] = res.data.time_created;
-
-      })
-      this.setState({arreglo_ordenes:arreglo_ordenes});
     }
+    this.setState({arreglo_ordenes:arreglo_ordenes});
   }
 
   render(){
@@ -78,7 +85,7 @@ class Device extends Component{
         <Header />
         <div className="wrapper-single-device">
           <div className="info-device">
-            <p><strong>Modelo:</strong>{this.state.modelo}</p>
+            <p><strong>Modelo:</strong>{this.state.modelo} - {this.state.capacity}GB</p>
             <p><strong>Color:</strong>{this.state.color}</p>
             <p><strong>Clave:</strong>{this.state.clave}</p>
             <p><strong>Cliente:</strong>{this.state.nombre_cliente} ({this.state.dni_cliente})</p>
@@ -86,7 +93,7 @@ class Device extends Component{
             <p><strong>IMEI:</strong>{this.state.imei}</p>
             <p><strong>Ordenes:</strong></p>
             {this.state.arreglo_ordenes.map((item)=>(
-              <a><Link to={'/ventas/'+item.id}><strong>Nro Orden: </strong>{item.id} - <strong>Fecha: </strong>{item.fecha} - <strong>Estado: </strong>{item.estado}</Link></a>
+              <a><Link to={'/ventas/'+item.sale}><p>{item.sale} - Estado: {item.estado}</p></Link></a>
             ))}
 
           </div>

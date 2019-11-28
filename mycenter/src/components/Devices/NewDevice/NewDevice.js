@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Aux from '../../../hoc/Aux';
 import Header from '../../Header/Header';
+import { Redirect } from 'react-router-dom';
 import './NewDevice.css';
 import axios from 'axios';
 
@@ -17,6 +18,7 @@ class NewDevice extends Component{
       password:"",
       notes:"",
       devices_models:[],
+      redirect:false,
 
     }
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -52,10 +54,10 @@ class NewDevice extends Component{
       this.getDevicesModels();
     }
     addDevice = (e) =>{
-      alert(this.state.id_cliente);
+      
       e.preventDefault();
       axios.post('http://127.0.0.1:8000/devices/',{
-        client:"http://127.0.0.1:8000/clients/"+this.state.id_cliente+"/",
+        current_owner:"http://127.0.0.1:8000/clients/"+this.state.id_cliente+"/",
         imei:this.state.imei,
         password:this.state.password,
         color:this.state.color,
@@ -65,12 +67,14 @@ class NewDevice extends Component{
       })
       .then(res=>{
         console.log(res);
+        this.setState({redirect:true});
       });
     }
 
     render(){
       return(
         <Aux>
+          {this.state.redirect ? <Redirect to={'/clientes/'+this.state.id_cliente }/> : ""}
           <Header />
           <div className="newdevice-wrapper">
             <div className="newdevice-form-wrapper">

@@ -1,0 +1,58 @@
+.wrapper-transacciones{
+  width: 100vw;
+  text-align: center;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.caja-efectivo{
+  width: 100vw;
+  border:1px solid black;
+}
+.caja-credito, .caja-debito{
+  width: calc(50vw - 20px);
+  height: 33vh;
+  margin:10px 5px;
+  border:1px solid black;
+}
+
+.nuevo-movimiento-caja{
+  width: 100vw;
+
+}
+.nuevo-movimiento-caja input{
+  width: 20vw;
+  font-size:15px;
+  display: inline-block;
+  margin:10px auto;
+}
+.nuevo-movimiento-caja select{
+  width: 20vw;
+  font-size:15px;
+  display: inline-block;
+  margin:10px auto;
+
+}
+.nuevo-movimiento-caja button{
+  display: block;
+  margin:20px auto;
+  font-size: 1em;
+  padding:15px;
+  background-color: rgb(0,122,255);
+  color:white;
+}
+.nuevo-movimiento-caja label{
+  margin:10px auto;
+  display: block;
+}
+#cerrar-caja-button{
+  width: 20vw;
+  background-color: #333333;
+  color:white;
+  border-radius: 4px;
+  font-size: 1.1em;
+  margin:10px 0px;
+  padding:10px;
+}

@@ -15,7 +15,13 @@ import Ventas from './components/Ventas/Ventas/Ventas';
 import Venta from './components/Ventas/Venta/Venta';
 import Routes from './components/Routes/Routes';
 import Stock from './components/Stock/Stock';
+import NewProduct from './components/Productos/NewProduct/NewProduct';
+import Productos from './components/Productos/Productos';
+import NewService from './components/Services/NewService/NewService';
+import Services from './components/Services/Services/Services';
+import NewComponent from './components/Componentes/NewComponent/NewComponent';
 import Device from './components/Devices/Device/Device';
+import Caja from './components/Caja/Caja';
 import Cookies from 'js-cookie';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
@@ -85,6 +91,12 @@ const routing = (
       <LoginRoute path="/ventas/:id" component={Venta} />
       <LoginRoute path="/rutas/:id" component={Routes} />
       <LoginRoute path="/stock" component={Stock} />
+      <LoginRoute path="/new-product" component={NewProduct} />
+      <LoginRoute path="/new-service" component={NewService} />
+      <LoginRoute path="/new-component" component={NewComponent} />
+      <LoginRoute path="/products" component={Productos} />
+      <LoginRoute path="/caja" component={Caja} />
+      <LoginRoute path="/servicios" component={Services} />
     </div>
   </Router>
 );
