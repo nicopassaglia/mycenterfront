@@ -11,7 +11,7 @@ class Venta extends Component{
     this.state = {
       id_orden:"",
       id_sale:"",
-      url:'http://127.0.0.1:8000',
+      url:'http://api.mycenter.rubick.co',
       fecha_creacion_orden:"",
       cliente:[],
       notas_orden:"",
@@ -841,7 +841,7 @@ class Venta extends Component{
   }
 
   getFinGarantia(cantidadDiasEnGarantia){
-  
+
     var fecha = new Date(this.state.deliver_date);
     fecha.setDate(fecha.getDate() + cantidadDiasEnGarantia);
     var date = fecha.getDate(); //Current Date

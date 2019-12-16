@@ -33,7 +33,7 @@ class NewClient extends Component{
   addClient = (e) =>{
     e.preventDefault();
 
-    axios.post('http://127.0.0.1:8000/clients/',{
+    axios.post('http://api.mycenter.rubick.co/clients/',{
       first_name:this.state.first_name,
       last_name:this.state.last_name,
       type_id:this.state.type_id,

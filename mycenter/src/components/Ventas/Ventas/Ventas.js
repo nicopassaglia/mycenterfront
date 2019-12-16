@@ -9,7 +9,7 @@ class Ventas extends Component{
   constructor(props){
     super(props);
     this.state = {
-      url:'http://127.0.0.1:8000',
+      url:'http://api.mycenter.rubick.co',
       ordenes:[],
     }
   }

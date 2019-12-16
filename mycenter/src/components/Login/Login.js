@@ -14,7 +14,7 @@ class Login extends Component{
 
     this.state = {
       redirect: false,
-      url:'http://127.0.0.1:8000',
+      url:'http://api.mycenter.rubick.co',
       csrftoken:Cookies.get('csrftoken'),
       username:'',
       password:'',

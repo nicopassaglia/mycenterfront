@@ -9,7 +9,7 @@ class Cliente extends Component{
   constructor(props){
     super(props);
     this.state = {
-      url:'http://127.0.0.1:8000',
+      url:'http://api.mycenter.rubick.co',
       id_inbd:"",
       name:"",
       mail:"",
@@ -19,7 +19,7 @@ class Cliente extends Component{
       person_id:"",
       devices_urls:[],
       devices:[],
-      
+
     };
 
 

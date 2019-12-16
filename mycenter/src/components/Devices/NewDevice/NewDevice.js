@@ -9,7 +9,7 @@ class NewDevice extends Component{
   constructor(props){
     super(props);
     this.state ={
-      url:'http://127.0.0.1:8000',
+      url:'http://api.mycenter.rubick.co',
       id_cliente:"",
       modelo:"-1",
       color:"Plateado",
@@ -54,7 +54,7 @@ class NewDevice extends Component{
       this.getDevicesModels();
     }
     addDevice = (e) =>{
-      
+
       e.preventDefault();
       axios.post('http://127.0.0.1:8000/devices/',{
         current_owner:"http://127.0.0.1:8000/clients/"+this.state.id_cliente+"/",
