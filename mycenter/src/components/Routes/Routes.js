@@ -9,7 +9,7 @@ class Routes extends Component{
   constructor(props){
     super(props);
     this.state = {
-      url:'http://api.mycenter.rubick.co',
+      url:'https://api.mycenter.rubick.co',
       id_orden:"",
       servicios_en_orden:[],
       rutas:[],

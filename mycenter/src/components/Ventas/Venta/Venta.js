@@ -11,7 +11,7 @@ class Venta extends Component{
     this.state = {
       id_orden:"",
       id_sale:"",
-      url:'http://api.mycenter.rubick.co',
+      url:'https://api.mycenter.rubick.co',
       fecha_creacion_orden:"",
       cliente:[],
       notas_orden:"",

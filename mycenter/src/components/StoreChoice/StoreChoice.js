@@ -11,7 +11,7 @@ class storechoice extends Component {
     menus:{
 
     },
-    url:"http://api.mycenter.rubick.co",
+    url:"https://api.mycenter.rubick.co",
     locales:[],
 
 

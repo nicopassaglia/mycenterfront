@@ -9,7 +9,7 @@ class NewDevice extends Component{
   constructor(props){
     super(props);
     this.state ={
-      url:'http://api.mycenter.rubick.co',
+      url:'https://api.mycenter.rubick.co',
       id_cliente:"",
       modelo:"-1",
       color:"Plateado",

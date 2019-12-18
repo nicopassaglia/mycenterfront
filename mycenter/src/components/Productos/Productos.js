@@ -9,7 +9,7 @@ class Productos extends Component{
   constructor(props){
     super(props);
     this.state={
-      url:'http://api.mycenter.rubick.co',
+      url:'https://api.mycenter.rubick.co',
       listado_productos:[],
     }
 

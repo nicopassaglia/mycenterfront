@@ -9,7 +9,7 @@ class NewVenta extends Component{
   constructor(props){
     super(props);
     this.state ={
-      url:'http://api.mycenter.rubick.co',
+      url:'https://api.mycenter.rubick.co',
       reparacion:false,
       wet:false,
       turns_on:true,
