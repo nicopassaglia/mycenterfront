@@ -99,7 +99,7 @@ class Login extends Component{
         {this.renderRedirect()}
         <form>
           <input value={this.state.username} name="username" onChange={this.handleInputChange} type="text" placeholder="Usuario" />
-          <input value={this.state.password} name="password" onChange={this.handleInputChange} type="text" placeholder="Clave" />
+          <input value={this.state.password} name="password" onChange={this.handleInputChange} type="password" placeholder="Clave" />
         </form>
           <button onClick={this.submitLogin} id="login-button">Ingresar</button>
 
