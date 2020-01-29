@@ -19,6 +19,7 @@ class Ventas extends Component{
     let ordenes = [];
     axios.get(this.state.url+'/orders/')
     .then(res =>{
+      
       for(let i = 0;i<res.data.length;i++){
         ordenes[i] = [];
         ordenes[i]['id'] = res.data[res.data.length - 1 - i].id;

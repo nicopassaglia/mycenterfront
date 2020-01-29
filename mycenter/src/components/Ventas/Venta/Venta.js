@@ -130,6 +130,7 @@ class Venta extends Component{
   fetchDataOrder(){
     axios.get(this.state.url+'/sales/'+this.state.id_orden)
     .then(res =>{
+
     //  console.log(res);
       this.setState({fecha_creacion_orden:res.data.time_created});
     });
@@ -144,6 +145,7 @@ class Venta extends Component{
     .then(res => {
       console.log(res.data);
       if(res.data.length > 0){
+
         this.setState({id_device_order:res.data[0].id,id_sale:res.data[0].sale},function(){this.fetchDataServices();this.fetchDataRoutes();});
         datos_device['estado'] = res.data[0].state;
         datos_device['observaciones_generales'] = res.data[0].general_observations;
@@ -162,6 +164,8 @@ class Venta extends Component{
         datos_device['pin_carga'] = res.data[0].charge_pin;
         datos_device['mojado'] = res.data[0].wet;
         this.setState({datos_device:datos_device});
+      }else{
+
       }
     });
 

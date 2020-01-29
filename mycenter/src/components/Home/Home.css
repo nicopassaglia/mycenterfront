@@ -1,0 +1,13 @@
+.wrapper-find-order{
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper-find-order input,.wrapper-find-order button{
+  font-size: 1.5em;
+  width: 25vw;
+
+}

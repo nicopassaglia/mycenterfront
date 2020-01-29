@@ -27,7 +27,7 @@ class header extends Component{
       <header>
         {this.state.redirect ? <Redirect to='/' /> : ""}
         <div className="logo-wrapper">
-          <img src={myCenterLogo} alt="logo" />
+          <a><Link to="/"><img src={myCenterLogo} alt="logo" /></Link></a>
         </div>
         <a><Link to="/clientes">Clientes</Link></a>
         <a><Link to="/new-venta">Nueva Venta</Link></a>
